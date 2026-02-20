@@ -19,7 +19,7 @@ class UsersSeeder extends Seeder
         DB::table('users')->insert([
             'name' => 'Luis Fimbres',
             'email' => 'luis.fimbres@itsncg.com',
-            'password' => bcrypt('rootbeer'),
+            'password' => Hash::make('rootbeer'),
             'loyalty_points' => 1000,
             'loyalty_level_id' => 1,
             'created_at' => date('Y-m-d H:i:s'),
