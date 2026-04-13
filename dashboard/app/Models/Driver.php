@@ -13,4 +13,8 @@ class Driver extends Model
         'license_img',
         'name'
     ];
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
