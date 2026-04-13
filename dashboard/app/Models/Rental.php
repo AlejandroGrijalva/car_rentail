@@ -17,4 +17,16 @@ class Rental extends Model
         'status',
         'name',
     ];
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+    public function car()
+    {
+        return $this->belongsTo(Car::class);
+    }
+    public function driver()
+    {
+        return $this->belongsTo(Driver::class);
+    }
 }

@@ -22,4 +22,8 @@ class Car extends Model
         'status',
         'name'
     ];
+    public function brand()
+    {
+        return $this->belongsTo(Brand::class);
+    }
 }
