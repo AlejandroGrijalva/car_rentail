@@ -8,7 +8,6 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use Tymon\JWTAuth\Facades\JWTAuth;
 use Tymon\JWTAuth\Exceptions\JWTException;
-use App\Http\Middleware\JwtMiddleware;
 use App\Http\Controllers\Controller;
 
 class AuthController extends Controller
@@ -51,7 +50,7 @@ class AuthController extends Controller
             return response()->json(['error' => 'Could not create token'], 500);
         }
         $user = User::find(Auth::user()->id);
-        
+
         return response()->json([
             'token' => $token,
             'user' => $user,
