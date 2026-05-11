@@ -26,6 +26,8 @@ return new class extends Migration
             $table->integer('daily_rate');
             $table->enum('status', ['available', 'rented', 'maintenance', 'retired']);
             $table->string('name');
+            $table->string('image');
+            $table->decimal('price', 10, 2);
             $table->timestamps();
         });
     }

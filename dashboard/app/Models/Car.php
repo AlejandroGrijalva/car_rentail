@@ -20,7 +20,9 @@ class Car extends Model
         'rental_count',
         'daily_rate',
         'status',
-        'name'
+        'name',
+        'image',
+        'price'
     ];
     public function brand()
     {

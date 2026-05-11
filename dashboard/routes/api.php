@@ -22,10 +22,6 @@ Route::resource('/rentals', RentalController::class);
 
 
 
-Route::get('/', function () {
-    return response()->json(['message' => 'Hello world!']);
-});
-
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
 

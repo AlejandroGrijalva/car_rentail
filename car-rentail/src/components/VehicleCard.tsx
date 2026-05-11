@@ -1,46 +1,45 @@
-interface VehicleProps {
-  name: string
-  model: string
-  price: number
-  image: string
-  distance: string
-  rating: number
-  reviews: number
-  isFavorite?: boolean
-}
+import type VehicleProps from "../interface/VehicleCard"
 
 export default function VehicleCard({
   name,
   model,
-  price,
+  daily_rate,
+  mileage,
+  year,
+  status,
+  is_premium,
   image,
-  distance,
-  rating,
-  reviews,
-  isFavorite = false,
+  price,
 }: VehicleProps) {
+  console.log(`${import.meta.env.VITE_API_ASSETS}/cars/${image}`)
   return (
     <div className="car-card">
       <div className="d-flex justify-content-between align-items-center mb-3">
         <div className="d-flex align-items-center gap-3 fs-sm fw-medium">
           <div className="text-dark">
-            <i className="fa-solid fa-person-walking text-muted me-2"></i>
-            {distance}
+            <i className="fa-solid fa-gauge-high text-muted me-2"></i>
+            {mileage?.toLocaleString()} mi
           </div>
-          <div className="text-warning">
-            <i className="fa-solid fa-star"></i>{" "}
-            <span className="text-dark">
-              {rating} <span className="text-muted fw-normal">({reviews})</span>
-            </span>
+          <div className="text-dark">
+            <i className="fa-solid fa-calendar text-muted me-2"></i>
+            {year}
           </div>
         </div>
-        <i
-          className={`${
-            isFavorite ? "fa-solid text-danger" : "fa-regular text-muted"
-          } fs-5 cursor-pointer hover-danger`}
-        ></i>
+        {is_premium ? (
+          <span className="badge bg-warning text-dark">
+            <i className="fa-solid fa-star"></i> Premium
+          </span>
+        ) : (
+          <span className="badge bg-secondary text-white text-capitalize">
+            {status}
+          </span>
+        )}
       </div>
-      <img src={image} className="car-img" alt={name} />
+      <img
+        src={`${import.meta.env.VITE_API_ASSETS}cars/${image}`}
+        className="car-img"
+        alt={name}
+      />
       <div className="d-flex justify-content-between align-items-end mt-3">
         <div>
           <h5 className="fw-bold mb-1">{name}</h5>
@@ -48,7 +47,7 @@ export default function VehicleCard({
         </div>
         <div className="text-end">
           <span className="fs-5 fw-bold">${price}</span>
-          <span className="text-muted fs-sm"> / hour</span>
+          <span className="text-muted fs-sm"> / day</span>
         </div>
       </div>
     </div>

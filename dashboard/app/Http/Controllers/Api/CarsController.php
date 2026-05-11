@@ -39,7 +39,9 @@ class CarsController extends Controller
             'rental_count' => 'required|integer|min:0',
             'daily_rate' => 'required|integer|min:0',
             'status' => 'required|in:available,rented,maintenance,retired',
-            'name' => 'required|string'
+            'name' => 'required|string',
+            'image' => 'required|string',
+            'price' => 'required|integer|min:0',
         ]);
 
         $car = Car::create($validated);
@@ -94,7 +96,9 @@ class CarsController extends Controller
             'rental_count' => 'sometimes|integer|min:0',
             'daily_rate' => 'sometimes|integer|min:0',
             'status' => 'sometimes|in:available,rented,maintenance,retired',
-            'name' => 'sometimes|string'
+            'name' => 'sometimes|string',
+            'image' => 'sometimes|string',
+            'price' => 'sometimes|integer|min:0',
         ]);
 
         $car->update($validated);

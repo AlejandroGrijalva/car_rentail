@@ -28,6 +28,8 @@ class CarsSeeder extends Seeder
             'daily_rate' => 100,
             'status' => 'available',
             'name' => 'Tesla Model S',
+            'image' => 'car1.jpg',
+            'price' => 100,
             'created_at' => date('Y-m-d H:i:s'),
         ]);
         $data = new Car();
@@ -44,6 +46,8 @@ class CarsSeeder extends Seeder
         $data->daily_rate = 80;
         $data->status = 'available';
         $data->name = 'Honda Civic';
+        $data->image = 'car2.jpg';
+        $data->price = 80;
         $data->save();
     }
 }
